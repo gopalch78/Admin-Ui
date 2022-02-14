@@ -1,8 +1,17 @@
-.header-heading {
-  color: green;
-  margin-left: 20px;
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
 }
 .logout-btn {
-  color: black;
   background-color: orange;
+  height: 40px;
+  width: 100px;
+  margin-top: 20px;
+  margin-left: 50px;
+  border-radius: 8px;
+}
+.heading {
+  color: chartreuse;
 }

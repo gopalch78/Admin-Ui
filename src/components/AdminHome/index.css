@@ -5,12 +5,35 @@
 .list-of-items {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   height: 100px;
   width: 100%;
-  align-items: center;
+  margin-left: 320px;
 }
 .list-item {
-  margin-left: 100px;
-  margin-right: 100px;
+  height: 100px;
+  width: 150px;
+  margin-left: 30px;
+}
+
+.search-bar {
+  text-align: center;
+  height: 40px;
+  width: 90%;
+  margin-left: 50px;
+}
+.pagination-container {
+  display: flex;
+  margin-left: 400px;
+}
+.paragraph {
+  font-weight: bold;
+}
+.delete-selected {
+  height: 40px;
+  width: 130px;
+  border-radius: 8px;
+  background-color: rgb(216, 117, 133);
+  margin-left: 70px;
+  color: black;
+  font-weight: bold;
 }

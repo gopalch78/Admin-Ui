@@ -17,6 +17,7 @@ class AdminHome extends Component {
     apiStatus: apiStatusConstants.initial,
     totalPages: 0,
     activePage: 1,
+    searchInput: '',
   }
 
   componentDidMount() {
@@ -48,6 +49,10 @@ class AdminHome extends Component {
       apiStatus: apiStatusConstants.success,
       totalPages,
     })
+  }
+
+  onChangeSearchInput = event => {
+    this.setState({searchInput: event.target.value})
   }
 
   onIncreasePageNumber = () => {
@@ -92,11 +97,17 @@ class AdminHome extends Component {
   )
 
   renderAdminUiListView = () => {
-    const {userData, activePage, totalPages} = this.state
+    const {userData, activePage, totalPages, searchInput} = this.state
+    const searchResults = userData.filter(
+      each =>
+        each.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+        each.email.toLowerCase().includes(searchInput.toLowerCase()) ||
+        each.role.toLowerCase().includes(searchInput.toLowerCase()),
+    )
     return (
       <>
         <ul>
-          {userData.map(each => (
+          {searchResults.map(each => (
             <AdminUiItem
               key={each.id}
               adminUiDetails={each}
@@ -104,6 +115,9 @@ class AdminHome extends Component {
             />
           ))}
         </ul>
+        <button type="button" className="delete-selected">
+          Deleted Selected
+        </button>
         <div className="pagination-container">
           <button
             type="button"
@@ -143,18 +157,35 @@ class AdminHome extends Component {
   }
 
   render() {
+    const {searchInput} = this.state
     return (
-      <div className="home-container">
+      <>
         <Header />
-        <input type="search" placeholder="Search by name,email or role" />
-        <li className="list-of-items">
-          <p className="list-item">Name</p>
-          <p className="list-item">Email</p>
-          <p className="list-item"> Role</p>
-          <p className="list-item">Actions</p>
-        </li>
-        {this.renderAdminUiDetails()}
-      </div>
+        <div className="home-container">
+          <input
+            type="search"
+            placeholder="Search by name,email or role"
+            className="search-bar"
+            value={searchInput}
+            onChange={this.onChangeSearchInput}
+          />
+          <li className="list-of-items">
+            <div className="list-item">
+              <p className="paragraph">Name</p>
+            </div>
+            <div className="list-item">
+              <p className="paragraph">Email</p>
+            </div>
+            <div className="list-item">
+              <p className="paragraph"> Role</p>
+            </div>
+            <div className="list-item">
+              <p className="paragraph">Actions</p>
+            </div>
+          </li>
+          {this.renderAdminUiDetails()}
+        </div>
+      </>
     )
   }
 }

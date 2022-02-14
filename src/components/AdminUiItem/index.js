@@ -11,16 +11,24 @@ const AdminUiItem = props => {
 
   return (
     <div className="admin-ui-item-container">
-      <li className="item-container">
-        <input type="checkbox" className="checkbox-element" />
-        <p className="admin-item">{name}</p>
-        <p className="admin-item">{email}</p>
-        <p className="admin-item">{role}</p>
-        <div className="edit-delete-container">
-          <FaEdit />
-          <MdDelete onClick={onClickRemoveAdminUiItem} />
+      <div className="item-container">
+        <div className="admin-item">
+          <input type="checkbox" className="checkbox-element" />
         </div>
-      </li>
+        <div className="admin-item">
+          <p>{name}</p>
+        </div>
+        <div className="admin-item">
+          <p>{email}</p>
+        </div>
+        <div className="admin-item">
+          <p>{role}</p>
+        </div>
+        <div className="edit-delete-container">
+          <FaEdit className="edit" />
+          <MdDelete onClick={onClickRemoveAdminUiItem} className="delete" />
+        </div>
+      </div>
     </div>
   )
 }

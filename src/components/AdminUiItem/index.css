@@ -1,0 +1,26 @@
+.admin-ui-item-container {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+.item-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  align-items: center;
+}
+
+.checkbox-element {
+  margin-top: 5px;
+}
+.admin-item {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.edit-delete-container {
+  margin-top: 20px;
+  margin-left: 50px;
+}

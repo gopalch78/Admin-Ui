@@ -22,15 +22,6 @@ class AdminHome extends Component {
     this.getAdminUiRepositoriesData()
   }
 
-  handlePageClick = async data => {
-    console.log(data.selected)
-    const currentPage = data.selected + 1
-    const adminData = await this.fetchData(currentPage)
-    this.setState({
-      userData: adminData,
-    })
-  }
-
   getAdminUiRepositoriesData = async () => {
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
@@ -42,6 +33,7 @@ class AdminHome extends Component {
     }
     const adminUiResponse = await fetch(adminUiUrl, options)
     const adminUiData = await adminUiResponse.json()
+
     const updatedAdminUiData = adminUiData.map(eachId => ({
       id: eachId.id,
       name: eachId.name,
@@ -103,12 +95,12 @@ class AdminHome extends Component {
           Deleted Selected
         </button>
         <ReactPaginate
-          previousLabel="<<"
-          nextLabel=">>"
+          previousLabel="Previous"
+          nextLabel="Next"
           breakLabel="..."
           pageCount="5"
-          marginPagesDisplayed="1"
-          pageRangeDisplay="1"
+          marginPagesDisplayed="2"
+          pageRangeDisplay="2"
           onPageChange={this.handlePageClick}
           containerClassName="pagination justify-content-center"
           pageClassName="page-item"

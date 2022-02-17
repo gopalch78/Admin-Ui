@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {BiChevronRightSquare, BiChevronLeftSquare} from 'react-icons/bi'
+import ReactPaginate from 'react-paginate'
 import Loader from 'react-loader-spinner'
 import Header from '../Header'
 import AdminUiItem from '../AdminUiItem'
@@ -15,8 +15,6 @@ class AdminHome extends Component {
   state = {
     userData: [],
     apiStatus: apiStatusConstants.initial,
-    totalPages: 0,
-    activePage: 1,
     searchInput: '',
   }
 
@@ -24,19 +22,25 @@ class AdminHome extends Component {
     this.getAdminUiRepositoriesData()
   }
 
+  handlePageClick = async data => {
+    console.log(data.selected)
+    const currentPage = data.selected + 1
+    const adminData = await this.fetchData(currentPage)
+    this.setState({
+      userData: adminData,
+    })
+  }
+
   getAdminUiRepositoriesData = async () => {
     this.setState({
       apiStatus: apiStatusConstants.inProgress,
     })
-    const limit = 10
+
     const adminUiUrl = `https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json`
     const options = {
       method: 'GET',
     }
     const adminUiResponse = await fetch(adminUiUrl, options)
-    const totalData = adminUiResponse.total
-
-    const totalPages = Math.ceil(totalData / limit)
     const adminUiData = await adminUiResponse.json()
     const updatedAdminUiData = adminUiData.map(eachId => ({
       id: eachId.id,
@@ -47,36 +51,15 @@ class AdminHome extends Component {
     this.setState({
       userData: updatedAdminUiData,
       apiStatus: apiStatusConstants.success,
-      totalPages,
     })
+  }
+
+  fetchData = () => {
+    this.getAdminUiRepositoriesData()
   }
 
   onChangeSearchInput = event => {
     this.setState({searchInput: event.target.value})
-  }
-
-  onIncreasePageNumber = () => {
-    const {activePage} = this.state
-    if (activePage < 4) {
-      this.setState(
-        prevState => ({
-          activePage: prevState.activePage + 1,
-        }),
-        this.getAdminUiRepositoriesData,
-      )
-    }
-  }
-
-  onDecreasePageNumber = () => {
-    const {activePage} = this.state
-    if (activePage > 1) {
-      this.setState(
-        prevState => ({
-          activePage: prevState.activePage - 1,
-        }),
-        this.getAdminUiRepositoriesData,
-      )
-    }
   }
 
   deleteAdminUiItem = id => {
@@ -97,13 +80,14 @@ class AdminHome extends Component {
   )
 
   renderAdminUiListView = () => {
-    const {userData, activePage, totalPages, searchInput} = this.state
+    const {userData, searchInput} = this.state
     const searchResults = userData.filter(
       each =>
         each.name.toLowerCase().includes(searchInput.toLowerCase()) ||
         each.email.toLowerCase().includes(searchInput.toLowerCase()) ||
         each.role.toLowerCase().includes(searchInput.toLowerCase()),
     )
+
     return (
       <>
         <ul>
@@ -118,25 +102,25 @@ class AdminHome extends Component {
         <button type="button" className="delete-selected">
           Deleted Selected
         </button>
-        <div className="pagination-container">
-          <button
-            type="button"
-            onClick={this.onDecreasePageNumber}
-            className="pagination-left-button"
-          >
-            <BiChevronLeftSquare size={20} />
-          </button>
-          <span className="active-page">{activePage}</span>
-          <span className="of">of </span>
-          <span className="total-pages">{totalPages}</span>
-          <button
-            type="button"
-            onClick={this.onIncreasePageNumber}
-            className="pagination-right-button"
-          >
-            <BiChevronRightSquare size={20} />
-          </button>
-        </div>
+        <ReactPaginate
+          previousLabel="<<"
+          nextLabel=">>"
+          breakLabel="..."
+          pageCount="5"
+          marginPagesDisplayed="1"
+          pageRangeDisplay="1"
+          onPageChange={this.handlePageClick}
+          containerClassName="pagination justify-content-center"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          activeClassName=" active"
+        />
       </>
     )
   }

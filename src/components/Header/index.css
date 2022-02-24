@@ -1,17 +1,19 @@
 .header-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
   margin-top: 10px;
+  margin-left: 20px;
 }
 .logout-btn {
   background-color: orange;
   height: 40px;
   width: 100px;
-  margin-top: 20px;
-  margin-left: 50px;
+  margin-top: 10px;
+  margin-right: 40px;
   border-radius: 8px;
 }
 .heading {
-  color: chartreuse;
+  color: rgb(154, 228, 6);
 }

@@ -1,28 +1,21 @@
-.admin-ui-item-container {
-  display: flex;
-  flex-direction: row;
-  list-style-type: none;
-}
 .item-container {
   display: flex;
   flex-direction: row;
-  height: 100px;
-  width: 100%;
-}
-
-.checkbox-element {
-  margin-top: 5px;
-}
-.admin-item {
-  height: 100px;
-  width: 200px;
-  display: flex;
   align-items: center;
-  justify-content: center;
+  list-style-type: none;
+  height: 50px;
+  justify-content: space-around;
+}
+.item {
+  font-weight: 300px;
+  font-family: 'Roboto';
+}
+.line {
+  width: 90%;
 }
 .edit-delete-container {
-  margin-top: 30px;
-  margin-left: 50px;
+  display: flex;
+  align-items: center;
 }
 .delete {
   color: red;

@@ -3,6 +3,8 @@ import Cookies from 'js-cookie'
 
 import './index.css'
 
+// Header with Logout Functionality and using withRouter to  use header component where ever we want to use
+
 const Header = props => {
   const onClickLogout = () => {
     const {history} = props

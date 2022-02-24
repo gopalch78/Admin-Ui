@@ -7,10 +7,13 @@ dependencies:
   msw: 0.28.1
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
+  react-edit-text: 4.2.0_react-dom@17.0.1+react@17.0.1
   react-icons: 4.3.1_react@17.0.1
   react-loader-spinner: 4.0.0_react-dom@17.0.1+react@17.0.1
   react-paginate: 8.1.0_react@17.0.1
   react-router-dom: 5.2.0_react@17.0.1
+  reactjs-popup: 2.0.5_react-dom@17.0.1+react@17.0.1
+  uuid: 8.3.2
 devDependencies:
   eslint-config-airbnb: 18.2.1
   eslint-config-prettier: 8.1.0
@@ -3837,6 +3840,10 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-qOhPa/Fj7s6TY8H8esGu5QNpMMQxz79h+urzrNYN6mn+9BnxlDGf5QZ+XeCDsxSjPqsSR56XOZOJmpeurnLMeg==
+  /classnames/2.3.1:
+    dev: false
+    resolution:
+      integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
   /clean-css/4.2.4:
     dependencies:
       source-map: 0.6.1
@@ -10489,6 +10496,19 @@ packages:
       react: 17.0.1
     resolution:
       integrity: sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug==
+  /react-edit-text/4.2.0_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      classnames: 2.3.1
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+    dev: false
+    engines:
+      node: '>=10'
+    peerDependencies:
+      react: ^17.0.2
+      react-dom: ^17.0.2
+    resolution:
+      integrity: sha512-3onhVkytD1BfFBG71dZnohO7YUTqJnJms7rHmWj+AkWiohoFtQOMHPDSak+zqNOA8DF3GE7YVm6StrL6ws3/sQ==
   /react-error-overlay/6.0.9:
     dev: true
     resolution:
@@ -10650,6 +10670,18 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w==
+  /reactjs-popup/2.0.5_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+    dev: false
+    engines:
+      node: '>=10'
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    resolution:
+      integrity: sha512-b5hv9a6aGsHEHXFAgPO5s1Jw1eSkopueyUVxQewGdLgqk2eW0IVXZrPRpHR629YcgIpC2oxtX8OOZ8a7bQJbxA==
   /read-pkg-up/7.0.1:
     dependencies:
       find-up: 4.1.0
@@ -12571,9 +12603,7 @@ packages:
     resolution:
       integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
   /uuid/8.3.2:
-    dev: true
     hasBin: true
-    optional: true
     resolution:
       integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
   /v8-compile-cache/2.3.0:
@@ -13241,8 +13271,11 @@ specifiers:
   prettier: 2.2.1
   react: 17.0.1
   react-dom: 17.0.1
+  react-edit-text: 4.2.0
   react-icons: 4.3.1
   react-loader-spinner: 4.0.0
   react-paginate: 8.1.0
   react-router-dom: 5.2.0
   react-scripts: 4.0.3
+  reactjs-popup: 2.0.5
+  uuid: 8.3.2

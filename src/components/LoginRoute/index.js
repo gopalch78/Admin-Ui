@@ -14,13 +14,19 @@ class LoginRoute extends Component {
     errorMsg: '',
   }
 
+  // event action for username input field
+
   onChangeUserName = event => {
     this.setState({username: event.target.value})
   }
 
+  // event action for password input field
+
   onChangePassword = event => {
     this.setState({password: event.target.value})
   }
+
+  // success case
 
   onSubmitSuccess = jwtToken => {
     const {history} = this.props
@@ -28,9 +34,13 @@ class LoginRoute extends Component {
     history.replace('/')
   }
 
+  // Failure case
+
   onSubmitFailure = errorMsg => {
     this.setState({showSubmitError: true, errorMsg})
   }
+
+  // post the username and password to backend for authentication
 
   onSubmitForm = async event => {
     event.preventDefault()
@@ -90,6 +100,8 @@ class LoginRoute extends Component {
       </>
     )
   }
+
+  // render method
 
   render() {
     const {showSubmitError, errorMsg} = this.state

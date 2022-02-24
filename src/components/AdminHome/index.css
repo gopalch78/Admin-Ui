@@ -5,35 +5,67 @@
 .list-of-items {
   display: flex;
   flex-direction: row;
-  height: 100px;
-  width: 100%;
-  margin-left: 320px;
-}
-.list-item {
-  height: 100px;
-  width: 150px;
-  margin-left: 30px;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 50px;
 }
 
-.search-bar {
-  text-align: center;
-  height: 40px;
-  width: 90%;
-  margin-left: 50px;
-}
-.pagination-container {
+.input-search-container {
   display: flex;
-  margin-left: 400px;
+  align-items: center;
+  width: 90%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 50px;
+  margin-left: 30px;
+  background-color: #fafafa;
 }
+
+.search-icon {
+  width: 60px;
+  height: 20px;
+
+  border-left: 1px solid #fafafa;
+}
+
+.input-search-container > input {
+  flex: 1;
+  border: none;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+.input-field {
+  border-radius: 5px;
+  margin-left: 15px;
+}
+.add-button {
+  height: 40px;
+  width: 110px;
+  margin-left: 25px;
+  background-color: gold;
+  border-radius: 8px;
+  color: black;
+  font-weight: bold;
+}
+
 .paragraph {
   font-weight: bold;
 }
 .delete-selected {
-  height: 40px;
+  height: 50px;
   width: 130px;
   border-radius: 8px;
   background-color: rgb(216, 117, 133);
-  margin-left: 70px;
+  margin-left: 50px;
   color: black;
   font-weight: bold;
+}
+.hr-line {
+  width: 90%;
+  margin-left: 20px;
 }

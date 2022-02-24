@@ -4,6 +4,10 @@ Login-Details:
 
 username:rahul password:rahul@2021
 
+Anyone can visit the Below Link by using above username and password
+
+https://gopaladminui.ccbp.tech/login
+
 In the Coding Problem , 1)Login Functionality 2) Logout Functionality 3) search Bar Functionality 4) Delete Functionality 5)Add Functionality(adding at the end of page) 6)Pagination Functionality 7)Multiple checkbox selecting and deleting functionality 8) Adding single item to local storage.
 
 1. Column titles must stand out from the entries.

@@ -4,13 +4,13 @@ Login-Details:
 
 username:rahul password:rahul@2021
 
-In the Coding Problem , 1)Login Functionality 2) Logout Functionality 3) search Bar Functionality 4) Delete Functionality 5)Add Functionality(adding at the end of page) 6)Pagination Functionality 7)Multiple checkbox selecting and deleting functionality
+In the Coding Problem , 1)Login Functionality 2) Logout Functionality 3) search Bar Functionality 4) Delete Functionality 5)Add Functionality(adding at the end of page) 6)Pagination Functionality 7)Multiple checkbox selecting and deleting functionality 8) Adding single item to local storage.
 
 1. Column titles must stand out from the entries.
 
 2. There should be a search bar that can filter on any property.
 
-3. You should be able to edit or delete rows in place.All the Data which comes from api is added using Local Storage Mechanism and when all the data is selected when delete button is clicked, add is removed from Local Storage.
+3. You should be able to edit or delete rows in place.All the Data which comes from api is added using Local Storage Mechanism and when all the data is selected when delete button is clicked, add is removed from Local Storage.single item can be added to list.
 
 4. You need to implement pagination: Each page contains 10 rows. Buttons at the bottom allow you to jump to any page including special buttons for first page, previous page, next page and last page. Pagination must update based on search/filtering.
 
